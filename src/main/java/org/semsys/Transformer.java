@@ -23,7 +23,7 @@ public class Transformer {
     private Resource namedIndividual = ResourceFactory.createResource(OWL.NS + "NamedIndividual");
 
     private String madmpOntology = "madmp-1.1.0.ttl";
-    private String madmpContext = "madmp-1.1.0.jsonld";
+    private String madmpContext = "madmp-1.1.0-context.json";
     private File madmpContextFile;
 
     public Transformer() throws IOException {
@@ -33,14 +33,22 @@ public class Transformer {
         FileUtils.copyInputStreamToFile(contextIS, madmpContextFile);
     }
 
-    public void madmpJsonToOnt(String madmpJsonFile, String outputOntFile) throws JsonLdError, FileNotFoundException {
+    public void madmpJsonToOnt(String madmpJsonFile, String outputOntFile, boolean validate) throws JsonLdError, FileNotFoundException {
         Model model = madmpJsonToModel(new File(madmpJsonFile));
+        if (validate) {
+            Resource result = Validator.INSTANCE.validate(model);
+            RDFDataMgr.write(new FileOutputStream(outputOntFile + ".shacl.ttl"), result.getModel(), Lang.TURTLE);
+        }
         RDFDataMgr.write(new FileOutputStream(outputOntFile), model, Lang.TURTLE);
     }
 
-    public void madmpOntToJson(String madmpOntFile, String outputJsonFile) throws JsonLdError, IOException {
-
-        JsonObject madmpJsonObject = madmpModelToJsonObject(RDFDataMgr.loadModel(madmpOntFile));
+    public void madmpOntToJson(String madmpOntFile, String outputJsonFile, boolean validate) throws JsonLdError, IOException {
+        Model model = RDFDataMgr.loadModel(madmpOntFile);
+        if (validate) {
+            Resource result = Validator.INSTANCE.validate(model);
+            RDFDataMgr.write(new FileOutputStream(outputJsonFile + ".shacl.ttl"), result.getModel(), Lang.TURTLE);
+        }
+        JsonObject madmpJsonObject = madmpModelToJsonObject(model);
         File tempJsonOutput = new File(outputJsonFile);
         madmpJsonToFile(madmpJsonObject, tempJsonOutput);
     }
