@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>id.semantics</groupId>
-    <artifactId>madmp-transformer</artifactId>
-    <version>0.9-SNAPSHOT</version>
+    <artifactId>madpot</artifactId>
+    <version>1.0.0</version>
     <build>
         <plugins>
             <plugin>
@@ -98,6 +98,13 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.topbraid/shacl -->
+        <dependency>
+            <groupId>org.topbraid</groupId>
+            <artifactId>shacl</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
     </dependencies>
 
 </project>
