@@ -15,7 +15,7 @@
     "created": "terms:created",
     "modified": "terms:modified",
     "description": "terms:description",
-    "format": "terms:format",
+    "format": {"@id": "terms:format", "@container": "@set" },
     "issued": "terms:issued",
 
     "document": "dcat:hasDocument",
@@ -24,7 +24,7 @@
     "access_url": "dcat:accessUrl",
     "byte_size": "dcat:byteSize",
     "download_url": "dcat:downloadURL",
-    "keyword": "dcat:keyword",
+    "keyword": { "@id": "dcat:keyword", "@container": "@set" },
 
     "name": "foaf:name",
     "mbox": "foaf:mbox",
@@ -38,31 +38,32 @@
     "ethical_issues_exist": "madmp:ethical_issues_exist",
     "ethical_issues_report": "madmp:ethical_issues_report",
     "ethical_issues_description": "madmp:ethical_issues_description",
+    "preservation_statement": "madmp:preservation_statement",
 
     "contact": "madmp:contact",
     "contact_id": "madmp:contact_id",
 
-    "contributor": "madmp:contributor" ,
+    "contributor": { "@id": "madmp:contributor", "@container": "@set" },
     "contributor_id": "madmp:contributor_id",
-    "role": { "@id": "madmp:role", "@container": "@list" },
+    "role": { "@id": "madmp:role", "@container": "@set" },
 
-    "cost": "madmp:cost",
+    "cost": { "@id": "madmp:cost", "@container": "@set" },
     "currency_code": "madmp:currency_code",
     "value": "madmp:value",
 
-    "project": "madmp:project",
-    "funding": "madmp:funding",
+    "project": { "@id": "madmp:project", "@container": "@set" },
+    "funding": { "@id": "madmp:funding", "@container": "@set" },
     "funder_id": "madmp:funder_id",
     "funder_status": "madmp:funder_status",
     "grant_id": "madmp:grant_id",
 
-    "dataset": "madmp:dataset",
+    "dataset": { "@id": "madmp:dataset", "@container": "@set" },
     "dataset_id": "madmp:dataset_id",
-    "data_quality_assurance": "madmp:data_quality_assurance",
+    "data_quality_assurance": {"@id": "madmp:data_quality_assurance", "@container": "@set" },
     "personal_data": "madmp:personal_data",
     "sensitive_data": "madmp:sensitive_data",
 
-    "distribution": "madmp:distribution",
+    "distribution": { "@id": "madmp:distribution", "@container": "@set" },
     "available_until": "madmp:available_until",
     "data_access": "madmp:data_access",
 
@@ -72,19 +73,19 @@
     "backup_type": "madmp:backup_type",
     "certified_with": "madmp:certified_with",
     "geo_location": "madmp:geo_location",
-    "pid_system": "madmp:pid_system",
+    "pid_system": { "@id": "madmp:pid_system", "@container": "@set" },
     "storage_type": "madmp:storage_type",
     "support_versioning": "madmp:support_versioning",
     "url": "madmp:url",
 
-    "license": "madmp:license",
+    "license": { "@id": "madmp:license", "@container": "@set" },
     "license_ref": "madmp:license_ref",
     "start_date": "madmp:start_date",
 
-    "metadata": "madmp:metadata",
+    "metadata": { "@id": "madmp:metadata", "@container": "@set" },
     "metadata_standard_id": "madmp:metadata_standard_id",
 
-    "security_and_privacy": "madmp:security_and_privacy",
-    "technical_resource": "madmp:technical_resource"
+    "security_and_privacy": { "@id": "madmp:security_and_privacy", "@container": "@set" },
+    "technical_resource": { "@id": "madmp:technical_resource", "@container": "@set" }
   }
 }
