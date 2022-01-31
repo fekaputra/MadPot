@@ -4,7 +4,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix wot: <http://xmlns.com/wot/0.1/> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -30,7 +30,7 @@
                                                                    "Tomasz Miksa" ;
                                 <http://purl.org/dc/terms/description> "This ontology represent the machine-actionable Data Management Plans (maDMP) using the Web Ontology Language (OWL). The versioning of this ontology mirrors the RDA DMP Common Standard for maDMP."@en ;
                                 <http://purl.org/dc/terms/rights> "http://creativecommons.org/licenses/by/4.0/" ;
-                                <http://purl.org/dc/terms/title> "The machine-actionable Data Management Plans (maDMP) ontology."@en ;
+                                <http://purl.org/dc/terms/title> "The machine-actionable Data Management Plans (maDMP) ontology"@en ;
                                 <http://purl.org/vocab/vann/preferredNamespacePrefix> "madmp" ;
                                 <http://purl.org/dc/terms/abstract> "This ontology represent the machine-actionable Data Management Plans (maDMP) using the Web Ontology Language (OWL). The versioning of this ontology mirrors the RDA DMP Common Standard for maDMP." ;
                                 rdfs:seeAlso <https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard#> .
@@ -194,7 +194,7 @@
 
 ###  https://w3id.org/madmp/terms#metadata
 :metadata rdf:type owl:ObjectProperty ;
-          rdfs:domain :DMP ;
+          rdfs:domain :Dataset ;
           rdfs:range :Metadata ;
           rdfs:comment "A Metadata standard used to describe data in this Dataset." ;
           rdfs:label "metadata" .

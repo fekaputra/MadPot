@@ -7,6 +7,7 @@
     <groupId>id.semantics</groupId>
     <artifactId>madpot</artifactId>
     <version>1.0.0</version>
+    <description>maDMP Ontology Toolkit (MadPot)</description>
     <build>
         <plugins>
             <plugin>

@@ -12,7 +12,7 @@
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/dc/terms/> .
-@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace/> .
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 @prefix vann:  <http://purl.org/vocab/vann/> .
 @prefix wot:   <http://xmlns.com/wot/0.1/> .
@@ -397,7 +397,8 @@ ex:DMPShape
             sh:path madmp:preservation_statement;
             sh:name "The Dataset Preservation Statement Schema";
             sh:description "Preservation Statement";
-
+            sh:maxCount 1;
+            sh:datatype xsd:string;
         ];
         sh:property [
             sh:path madmp:security_and_privacy;
