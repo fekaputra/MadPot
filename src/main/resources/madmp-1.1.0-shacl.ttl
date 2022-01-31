@@ -23,8 +23,15 @@
 
 ex:DMPShape
     a sh:NodeShape;
+    sh:closed true;
     sh:name "The DMP Schema";
     sh:targetClass madmp:DMP;
+    sh:property [
+        sh:path rdf:type;
+        sh:name "The DMP class";
+        sh:description "Class of a DMP";
+        sh:value madmp:DMP ;
+    ];
     sh:property [
         sh:path terms:title;
         sh:name "The DMP Title Schema";

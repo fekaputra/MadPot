@@ -33,21 +33,21 @@ public class Transformer {
         FileUtils.copyInputStreamToFile(contextIS, madmpContextFile);
     }
 
-    public void madmpJsonToOnt(String madmpJsonFile, String outputOntFile, boolean validate) throws JsonLdError, FileNotFoundException {
+    public void madmpJsonToOnt(String madmpJsonFile, String outputOntFile) throws JsonLdError, FileNotFoundException {
         Model model = madmpJsonToModel(new File(madmpJsonFile));
-        if (validate) {
-            Resource result = Validator.INSTANCE.validate(model);
-            RDFDataMgr.write(new FileOutputStream(outputOntFile + ".shacl.ttl"), result.getModel(), Lang.TURTLE);
-        }
+//        if (validate) {
+//            Resource result = Validator.INSTANCE.validateRDF(model);
+//            RDFDataMgr.write(new FileOutputStream(outputOntFile + ".shacl.ttl"), result.getModel(), Lang.TURTLE);
+//        }
         RDFDataMgr.write(new FileOutputStream(outputOntFile), model, Lang.TURTLE);
     }
 
-    public void madmpOntToJson(String madmpOntFile, String outputJsonFile, boolean validate) throws JsonLdError, IOException {
+    public void madmpOntToJson(String madmpOntFile, String outputJsonFile) throws JsonLdError, IOException {
         Model model = RDFDataMgr.loadModel(madmpOntFile);
-        if (validate) {
-            Resource result = Validator.INSTANCE.validate(model);
-            RDFDataMgr.write(new FileOutputStream(outputJsonFile + ".shacl.ttl"), result.getModel(), Lang.TURTLE);
-        }
+//        if (validate) {
+//            Resource result = Validator.INSTANCE.validateRDF(model);
+//            RDFDataMgr.write(new FileOutputStream(outputJsonFile + ".shacl.ttl"), result.getModel(), Lang.TURTLE);
+//        }
         JsonObject madmpJsonObject = madmpModelToJsonObject(model);
         File tempJsonOutput = new File(outputJsonFile);
         madmpJsonToFile(madmpJsonObject, tempJsonOutput);
@@ -89,6 +89,7 @@ public class Transformer {
         model.setNsPrefixes(madmpModel.getNsPrefixMap());
         JsonArray jsonArray = JsonLd.expand(dmpJsonFile.toURI())
                 .context(madmpContextFile.toURI()).get();
+        System.out.println(jsonArray);
         InputStream is = new ByteArrayInputStream(jsonArray.toString().getBytes());
         RDFDataMgr.read(model, is, Lang.JSONLD);
 

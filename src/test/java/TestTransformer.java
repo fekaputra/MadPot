@@ -15,7 +15,7 @@ public class TestTransformer {
     public void TestTransformer() throws IOException, JsonLdError {
         Transformer transformer = new Transformer();
 
-        String jsonInput = "src/test/resources/json/ex9-dmp-long.json";
+        String jsonInput = "src/test/resources/json/ex9-dmp-long-incorrect.json";
         String rdfInput = "src/test/resources/ttl/ex1-header-fundedProject.ttl";
 
         File file = folder.newFolder();
@@ -25,10 +25,10 @@ public class TestTransformer {
         String jsonOutputOfRdfInput = file + "2_jsonOutputOfRdfInput.json";
         String regeneratedRdfInput = file + "2_regeneratedRdfInput.ttl";
 
-        transformer.madmpJsonToOnt(jsonInput, rdfOutputOfJsonInput, false);
-        transformer.madmpOntToJson(rdfOutputOfJsonInput, regenerateJsonInput, false);
+        transformer.madmpJsonToOnt(jsonInput, rdfOutputOfJsonInput);
+        transformer.madmpOntToJson(rdfOutputOfJsonInput, regenerateJsonInput);
 
-        transformer.madmpOntToJson(rdfInput, jsonOutputOfRdfInput, false);
-        transformer.madmpJsonToOnt(jsonOutputOfRdfInput, regeneratedRdfInput, false);
+        transformer.madmpOntToJson(rdfInput, jsonOutputOfRdfInput);
+        transformer.madmpJsonToOnt(jsonOutputOfRdfInput, regeneratedRdfInput);
     }
 }
